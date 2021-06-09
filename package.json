@@ -2,6 +2,7 @@
   "name": "mqtt-topic-tree",
   "version": "0.1.0",
   "license": "UNLICENSED",
+  "homepage": "/mqtt-topic-tree",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
