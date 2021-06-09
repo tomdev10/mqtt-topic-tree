@@ -21,6 +21,7 @@ const generateTopicNameFrom = (messageTopic,index) => {
   return splitArray.join('/')
 };
 
+ /*eslint-disable*/
 const enrichDataForTree = (messages) => {
   Object.keys(messages).map(messageTopic => {
     const arrayOfTopicLevels = messageTopic.split('/');
@@ -38,6 +39,7 @@ const enrichDataForTree = (messages) => {
   })
   tree.push({name: 'broker' , displayName: 'broker', parentId: null, content: null})
 };
+ /*eslint-enable*/
 
 const generateTree = (data) => {
   const idMapping = data.reduce((acc, el, i) => {
