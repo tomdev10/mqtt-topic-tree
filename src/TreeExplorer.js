@@ -1,6 +1,6 @@
 import React from 'react';
 import Tree from 'react-d3-tree';
-import { linkHorizontal, linkVertical } from 'd3-shape';
+// import { linkHorizontal, linkVertical } from 'd3-shape';
 
 let tree = [];
 
