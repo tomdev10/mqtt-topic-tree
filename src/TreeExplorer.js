@@ -33,7 +33,7 @@ const enrichDataForTree = (messages) => {
       const idToUse = parentIdToUse !== 'broker' ? (index === messageTopic.split('/').length -1 ? messageTopic : generateTopicNameFrom(messageTopic, index)) : messageTopic.split('/')[index];
 
       if (!checkIfArrayContainsNode(tree,idToUse,parentIdToUse)) {
-        tree.push({name: idToUse , displayName: messageTopic.split('/')[index], parentId: parentIdToUse, attributes: {payload: contentToUse}})
+        contentToUse ? tree.push({name: idToUse , displayName: messageTopic.split('/')[index], parentId: parentIdToUse, attributes: {payload: contentToUse}}) : tree.push({name: idToUse , displayName: messageTopic.split('/')[index], parentId: parentIdToUse})
       }
     })
   })
