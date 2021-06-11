@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import './App.css';
 
 import ConnectionStatus from './ConnectionStatus';
@@ -11,9 +11,17 @@ function App() {
   const [subTopic, setSubTopic] = useState(false);
 
   const handleBrokerChange = (e) => {
-    setBrokerUrl(e.target[0].value)
-    setSubTopic(e.target[1].value)
+    e.preventDefault();
+    if (e.target[0].value !== "") {
+      setBrokerUrl(e.target[0].value)
+      setSubTopic(e.target[1].value)
+    }
   };
+
+  useEffect(()=>{
+    if (brokerUrl) document.getElementById('brokerUrl').value = brokerUrl;
+    if (subTopic) document.getElementById('topicToSubTo').value = subTopic;
+  },[brokerUrl,subTopic]);
 
   const handleToggleTree = () => setToggleTree(!toggleTree);
 
