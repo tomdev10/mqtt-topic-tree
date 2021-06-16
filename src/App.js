@@ -38,12 +38,13 @@ function App() {
 
   const handleToggleTree = () => setView(view === 'tree' ? null : 'tree');
   const handleToggleNetwork = () => setView(view === 'network' ? null : 'network');
+  const handleToggleMap = () => setView(view === 'map' ? null : 'map');
 
   return (
     <div className="App">
       <ConnectorWrapper brokerUrlToUse={brokerUrl}>
         <Instructions />
-        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} handleToggleNetwork={handleToggleNetwork}/>
+        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} handleToggleNetwork={handleToggleNetwork} handleToggleMap={handleToggleMap}/>
         <MessageLog view={view} subTopic={subTopic} />
       </ConnectorWrapper>
     </div>

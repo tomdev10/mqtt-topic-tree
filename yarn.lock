@@ -1541,6 +1541,17 @@
   dependencies:
     "@react-spring/web" "9.1.2"
 
+"@nivo/treemap@^0.70.1":
+  version "0.70.1"
+  resolved "https://registry.yarnpkg.com/@nivo/treemap/-/treemap-0.70.1.tgz#097ddf085da729510fb58ef5f80cb39f0577e631"
+  integrity sha512-R6dn3SWNw3TXNNvU+lhhaMRJCFZKGRaTSPOGLrDr0PL7RNEC6HvF7/4e/Tn01ROUdCLIQlcZA6vHYT2/IOoz1w==
+  dependencies:
+    "@nivo/colors" "0.70.1"
+    "@nivo/tooltip" "0.70.1"
+    "@react-spring/web" "9.1.2"
+    d3-hierarchy "^1.1.8"
+    lodash "^4.17.11"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
