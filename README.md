@@ -2,8 +2,6 @@
 
 ToDo:  
 
-1) Check what happens when new messages arrive (avoid expensive re-render)
-2) Styling - tailwind? 
-3) deploy
-5) which port does it assume for wss ? I tried wss://MQTT.eclipseprojects.io:443 (with topic tree ‘andysc/#’ ) and it says offline then reconnecting
-8) subscriptions don’t work yet - maybe that’s why I can’t connect to eclipse
+1) Check what happens when new messages arrive (avoid expensive re-render) / subscriptions don’t work yet - maybe that’s why I can’t connect to eclipse
+2) which port does it assume for wss ? I tried wss://MQTT.eclipseprojects.io:443 (with topic tree ‘andysc/#’ ) and it says offline then reconnecting
+3) allowing client id, username, password
