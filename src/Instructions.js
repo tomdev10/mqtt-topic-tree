@@ -17,6 +17,7 @@ const Instructions = () => {
               <li>3) Toggle your tree on, and explore!</li>
           </ol>
           <div className="text-xs py-2 italic">(The message log is avaliable at the bottom to aid debugging!)</div>
+
       </div>
       <div>
         <Logo width={200} height={200} className="p-6" />
