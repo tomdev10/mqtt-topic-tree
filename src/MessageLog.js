@@ -2,8 +2,9 @@ import React, {useEffect,useState} from 'react';
 import TreeExplorer from './TreeExplorer';
 import { useSubscription } from 'mqtt-react-hooks';
 import JSONTree from 'react-json-tree'
+import NetworkExplorer from './NetworkExplorer';
 
-export default function MessageLog({tree, subTopic}) {
+export default function MessageLog({view, subTopic}) {
   /* Message structure:
   *  topic: string
   *  message: string
@@ -25,7 +26,8 @@ export default function MessageLog({tree, subTopic}) {
   },[messages, setMessagesObj]);
   return (
     <> 
-      {tree && <TreeExplorer messages={messagesObj} />}
+      {view === 'tree' && <TreeExplorer messages={messagesObj} />}
+      {view === 'network' && <NetworkExplorer messages={messagesObj} />}
       <hr />
       {messages.length > 0 && <JSONTree data={messages} />}
     </>

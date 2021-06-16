@@ -13,7 +13,7 @@ function App() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const [toggleTree, setToggleTree] = useState(false);
+  const [view, setView] = useState(false);
 
   const handleBrokerChange = (e) => {
     e.preventDefault();
@@ -36,14 +36,15 @@ function App() {
     if (password) document.getElementById('password').value = password;
   },[brokerUrl, clientId, password, subTopic, username]);
 
-  const handleToggleTree = () => setToggleTree(!toggleTree);
+  const handleToggleTree = () => setView(view === 'tree' ? null : 'tree');
+  const handleToggleNetwork = () => setView(view === 'network' ? null : 'network');
 
   return (
     <div className="App">
       <ConnectorWrapper brokerUrlToUse={brokerUrl}>
         <Instructions />
-        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} />
-        <MessageLog tree={toggleTree} subTopic={subTopic} />
+        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} handleToggleNetwork={handleToggleNetwork}/>
+        <MessageLog view={view} subTopic={subTopic} />
       </ConnectorWrapper>
     </div>
   );

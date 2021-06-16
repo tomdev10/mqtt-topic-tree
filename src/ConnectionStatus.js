@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMqttState } from 'mqtt-react-hooks';
 
-const ConnectorWrapper = ({onBrokerChange,handleToggleTree}) => {
+const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork}) => {
 
   /*
   * Status list
@@ -44,7 +44,8 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree}) => {
       </form>
       <div className="flex items-center justify-center flex-col max-w-lg flex-grow">
         {connectionStatus && <h4 class="text-lg font-medium text-black">{`Status: ${connectionStatus}`}</h4>}
-        {connectionStatus === "Connected" && <button class="px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>}
+        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>}
+        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-200 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2" onClick={handleToggleNetwork}>Toggle Network</button>}
       </div>
     </div>
 
