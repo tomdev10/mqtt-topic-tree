@@ -46,7 +46,7 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         {connectionStatus && <h4 class="text-lg font-medium text-black">{`Status: ${connectionStatus}`}</h4>}
         {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>}
         {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-200 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2" onClick={handleToggleNetwork}>Toggle Network</button>}
-        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-brown-600 font-semibold rounded-full border border-brown-200 hover:text-white hover:bg-brown-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-brown-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>}
+        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>}
       </div>
     </div>
 
