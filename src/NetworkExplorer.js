@@ -55,7 +55,6 @@ const buildTree = (messages) => {
 
 const NetworkExplorer = ({messages}) => {
   const dataForTree = buildTree(messages);
-  console.log('tree data trying to use: ', dataForTree);
   return <div style={{height: 800, border: '5px solid black', margin: '5rem'}}>
     <ResponsiveNetworkCanvas
         nodes={[...dataForTree, {id: 'root' ,  ...stylingForDepth(1)}]}
