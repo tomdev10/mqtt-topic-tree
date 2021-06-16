@@ -15,27 +15,27 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
   const { connectionStatus } = useMqttState();
 
   return (
-    <div className="p-6 m-6 bg-white rounded-xl shadow-md flex items-center space-x-4">
+    <div className="p-6 m-6 bg-white rounded-xl shadow-md flex items-center space-x-4 flex-wrap">
       <form onSubmit={onBrokerChange} style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
         <h3 className="text-lg font-medium text-black">Broker Details</h3>
         <div className="my-4">
-          <label className="flex items-center w-full justify-between">
+          <label className="flex items-center w-full justify-between flex-wrap">
             Broker URL:
             <input id="brokerUrl" class="px-4 py-1 mx-4 text-sm text-purple-400 rounded-full border border-purple-200 "/>
           </label>
-          <label className="flex items-center justify-between w-full ">
+          <label className="flex items-center justify-between w-full flex-wrap">
             Topic (will default to all):
             <input id="topicToSubTo" class="px-4 mx-4 my-2 py-1 text-sm text-purple-400 rounded-full border border-purple-200 "/>
           </label>
-          <label className="flex items-center w-full justify-between">
+          <label className="flex items-center w-full justify-between flex-wrap">
            Client Id (will default to random):
             <input id="clientId" class="px-4 py-1 mx-4 text-sm text-purple-400 rounded-full border border-purple-200 "/>
           </label>
-          <label className="flex items-center justify-between w-full ">
+          <label className="flex items-center justify-between w-full flex-wrap">
             Username  (will default to unauth):
             <input id="username" class="px-4 mx-4 my-2 py-1 text-sm text-purple-400 rounded-full border border-purple-200 "/>
           </label>
-          <label className="flex items-center w-full justify-between">
+          <label className="flex items-center w-full justify-between flex-wrap">
             Password (will default to unauth):
             <input id="password" class="px-4 py-1 mx-4 text-sm text-purple-400 rounded-full border border-purple-200 "/>
           </label>

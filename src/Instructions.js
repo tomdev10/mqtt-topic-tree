@@ -3,7 +3,7 @@ import {ReactComponent as Logo} from "./logo.svg";
 
 const Instructions = () => {
   return (
-    <div className="p-6 m-6 bg-white rounded-xl shadow-md space-x-4 flex justify-between items-center">
+    <div className="p-6 m-6 bg-white rounded-xl shadow-md space-x-4 flex justify-between items-center flex-wrap">
       <div>
       <h1 className="text-xl font-medium text-black mb-6">MQTT Topic Tree Visualiser 🌳</h1>
       <div className="my-4">
