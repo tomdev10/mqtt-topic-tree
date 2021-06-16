@@ -49,7 +49,7 @@ const generateTree = (data) => {
     return acc;
   }, {});
 
-  // console.log('name mapping: ',idMapping);
+
   let root;
   data.forEach(el => {
     // Handle the root element
@@ -72,26 +72,7 @@ const generateTree = (data) => {
   return root;
 }
 
-// const straightPathFunc = (linkDatum, orientation) => {
-//   const { source, target } = linkDatum;
-//   return orientation === 'horizontal'
-//     ? `M${source.y},${source.x}L${target.y},${target.x}`
-//     : `M${source.x},${source.y}L${target.x},${target.y}`;
-// };
 
-// const drawDiagonalPath = (linkData, orientation) => {
-//   const { source, target } = linkData;
-//   const isTargetPositive = Math.sign(target.x) === 1;
-//   return orientation === 'horizontal'
-//     ? linkHorizontal()({
-//         source: [source.y, source.x],
-//         target: [target.y, isTargetPositive ? target.x -100 : target.x +100],
-//       })
-//     : linkVertical()({
-//         source: [source.x, source.y],
-//         target: [target.x, target.y],
-//       });
-// }
 
 
 const buildTree = (messages) => {
@@ -109,7 +90,6 @@ const TreeExplorer = ({messages}) => {
       zoom={1} 
       initialDepth={1} 
       translate={translation}
-      // pathFunc={drawDiagonalPath}
       nodeSize={{x:100,y:100}}
     />
   </div>;
