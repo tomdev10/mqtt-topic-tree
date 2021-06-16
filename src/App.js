@@ -1,8 +1,9 @@
 import {useState,useEffect} from 'react';
-import './App.css';
+
 
 import ConnectionStatus from './ConnectionStatus';
 import ConnectorWrapper from './ConnectorWrapper';
+import Instructions from './Instructions';
 import MessageLog from './MessageLog';
 
 function App() {
@@ -28,8 +29,8 @@ function App() {
   return (
     <div className="App">
       <ConnectorWrapper brokerUrlToUse={brokerUrl}>
-        <ConnectionStatus onBrokerChange={handleBrokerChange} />
-        <button onClick={handleToggleTree}>Toggle Tree</button>
+        <Instructions />
+        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} />
         <MessageLog tree={toggleTree} subTopic={subTopic} />
       </ConnectorWrapper>
     </div>
