@@ -24,7 +24,7 @@ function checkIfArrayContainsNode(arr, id) {
     return id === arrVal.id;
   });
 }
-
+ /*eslint-disable*/
 const addNodesToTree = (messages) => {
   Object.keys(messages).map(messageTopic => {
     const arrayOfTopicLevels = messageTopic.split('/'); 
@@ -43,7 +43,7 @@ const addNodesToTree = (messages) => {
     }) 
     })
 };
-
+ /*eslint-enable*/
 
 
 
