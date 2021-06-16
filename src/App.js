@@ -8,21 +8,33 @@ import MessageLog from './MessageLog';
 
 function App() {
   const [brokerUrl, setBrokerUrl] = useState();
+  const [subTopic, setSubTopic] = useState();
+  const [clientId, setClientId] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
   const [toggleTree, setToggleTree] = useState(false);
-  const [subTopic, setSubTopic] = useState(false);
 
   const handleBrokerChange = (e) => {
     e.preventDefault();
     if (e.target[0].value !== "") {
       setBrokerUrl(e.target[0].value)
       setSubTopic(e.target[1].value)
+      setClientId(e.target[2].value)
+      if (e.target[3].value !== "" && e.target[4].value !== "") {
+        setUsername(e.target[3].value)
+        setPassword(e.target[4].value)
+      }
     }
   };
 
   useEffect(()=>{
     if (brokerUrl) document.getElementById('brokerUrl').value = brokerUrl;
     if (subTopic) document.getElementById('topicToSubTo').value = subTopic;
-  },[brokerUrl,subTopic]);
+    if (clientId) document.getElementById('clientId').value = clientId;
+    if (username) document.getElementById('username').value = username;
+    if (password) document.getElementById('password').value = password;
+  },[brokerUrl, clientId, password, subTopic, username]);
 
   const handleToggleTree = () => setToggleTree(!toggleTree);
 
