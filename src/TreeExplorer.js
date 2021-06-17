@@ -87,7 +87,7 @@ const TreeExplorer = ({messages}) => {
   return <div style={{height: 600, border: '5px solid black', margin: '5rem'}}>
     <Tree 
       data={dataForTree} 
-      zoom={1} 
+      zoom={0.5} 
       initialDepth={1} 
       translate={translation}
       nodeSize={{x:100,y:100}}

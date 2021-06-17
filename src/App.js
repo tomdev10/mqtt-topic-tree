@@ -44,7 +44,17 @@ function App() {
     <div className="App">
       <ConnectorWrapper brokerUrlToUse={brokerUrl}>
         <Instructions />
-        <ConnectionStatus onBrokerChange={handleBrokerChange} handleToggleTree={handleToggleTree} handleToggleNetwork={handleToggleNetwork} handleToggleMap={handleToggleMap}/>
+        <ConnectionStatus 
+          onBrokerChange={handleBrokerChange} 
+          handleToggleTree={handleToggleTree} 
+          handleToggleNetwork={handleToggleNetwork} 
+          handleToggleMap={handleToggleMap}
+          brokerToUse={brokerUrl}
+          topic={subTopic || '#'}
+          clientId={clientId}
+          username={username}
+          password={password}
+        />
         <MessageLog view={view} subTopic={subTopic} />
       </ConnectorWrapper>
     </div>
