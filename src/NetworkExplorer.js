@@ -89,15 +89,16 @@ const frameProps = {
 
 const NetworkExplorer = ({messages}) => {
   const dataForTree = buildTree(messages);
-  console.log(dataForTree)
-  return <div style={{height: 800, border: '5px solid black', margin: '5rem'}}>
+  return <div style={{height: 800, border: '5px solid black', margin: '5rem', padding: '5rem'}}>
     <NetworkFrame 
       edges={dataForTree}  
       hoverAnnotation={true}
-      tooltipContent={d => (
-      <div className="tooltip-content">
-        <p>Name: {d.name}</p>
-      </div>
+      download={true}
+      tooltipContent={d =>  (
+        <div className="p-2 shadow-md text-xs z-10 bg-white">
+          <p className="font-bold">{d.attributes?.payload ? `Topic: ${d.name}` : `Tree: ${d.name}`}</p>
+          {d.attributes?.payload && <p>Message: {d.attributes?.payload}</p>}
+        </div> 
     )} 
     {...frameProps} 
     />
