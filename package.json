@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "classnames": "^2.3.1",
     "mqtt-react-hooks": "^2.0.0",
     "react": "^17.0.2",
     "react-d3-tree": "^2.0.2",
@@ -17,6 +18,8 @@
     "react-json-tree": "^0.15.0",
     "react-scripts": "4.0.3",
     "semiotic": "1.20.6",
+    "three": "^0.129.0",
+    "three-forcegraph": "^1.39.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
