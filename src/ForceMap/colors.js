@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   magenta: new THREE.Color(0xf103c8),
   violet: new THREE.Color(0x8603f1),

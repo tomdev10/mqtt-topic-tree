@@ -82,8 +82,9 @@ const buildTree = (messages) => {
 };
 
 const TreeExplorer = ({messages}) => {
-   const dataForTree = buildTree(messages);
-   const translation = {x: 300, y: 300};
+  const dataForTree = buildTree(messages);
+  console.log('tree: ', dataForTree);
+  const translation = {x: 300, y: 300};
   return <div style={{height: 600, border: '5px solid black', margin: '5rem'}}>
     <Tree 
       data={dataForTree} 
