@@ -5,6 +5,7 @@ import JSONTree from 'react-json-tree'
 import NetworkExplorer from './NetworkExplorer';
 import Treemap from './Treemap';
 import ForceMap from './ForceMap/ForceMap'
+import VisChart from './VisChart/VisChart';
 
 export default function MessageLog({view, subTopic}) {
   /* Message structure:
@@ -32,6 +33,7 @@ export default function MessageLog({view, subTopic}) {
       {view === 'network' && <NetworkExplorer messages={messagesObj} />}
       {view === 'map' && <Treemap messages={messagesObj} />}
       {view === 'force' && <ForceMap messages={messagesObj} />}
+      {view === 'vis' && <VisChart messages={messagesObj} />}
       <hr />
       {messages.length > 0 && <JSONTree data={messages} />}
     </>

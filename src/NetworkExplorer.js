@@ -89,7 +89,6 @@ const frameProps = {
 
 const NetworkExplorer = ({messages}) => {
   const dataForTree = buildTree(messages);
-  console.log('network: ', dataForTree);
   return <div style={{height: 800, border: '5px solid black', margin: '5rem', padding: '5rem'}}>
     <NetworkFrame 
       edges={dataForTree}  

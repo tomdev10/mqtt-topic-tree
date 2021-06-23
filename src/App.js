@@ -40,6 +40,7 @@ function App() {
   const handleToggleNetwork = () => setView(view === 'network' ? null : 'network');
   const handleToggleMap = () => setView(view === 'map' ? null : 'map');
   const handleToggleForce = () => setView(view === 'force' ? null : 'force');
+  const handleToggleVis = () => setView(view === 'vis' ? null : 'vis');
 
   return (
     <div className="App">
@@ -51,6 +52,7 @@ function App() {
           handleToggleNetwork={handleToggleNetwork} 
           handleToggleMap={handleToggleMap}
           handleToggleForce={handleToggleForce}
+          handleToggleVis={handleToggleVis}
           brokerToUse={brokerUrl}
           topic={subTopic || '#'}
           clientId={clientId}
