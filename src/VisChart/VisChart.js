@@ -36,9 +36,9 @@ export default function VisChart({messages}) {
         const parentIdToUse = index === 0 ? 'broker' : generateTopicNameFrom(messageTopic, index -1);
         if (!checkIfArrayContainsNode(nodes,idToUse,messageTopic.split('/')[index])) {
           if (contentToUse) {
-            nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], title: contentToUse});
+            nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], title: contentToUse, shape: 'text', mass:3, margin: 10});
           } else {
-            nodes.push({id: idToUse , label: messageTopic.split('/')[index],color: colours[index]});
+            nodes.push({id: idToUse , label: messageTopic.split('/')[index],color: colours[index], mass:3});
           }
         }
         if (!checkIfArrayContainsEdge(edges,idToUse,parentIdToUse)) {
@@ -46,7 +46,7 @@ export default function VisChart({messages}) {
         }
       })
     })
-    nodes.push({id: 'broker' , label: 'broker', color: '#0000ff'})
+    nodes.push({id: 'broker' , label: 'broker', color: '#0000ff', mass:3})
   };
 
 
@@ -70,7 +70,7 @@ export default function VisChart({messages}) {
     }
   };
 
-  return <div style={{height: 800, border: '5px solid black', margin: '5rem', padding: '5rem'}}>
+  return <div style={{height: 800, border: '5px solid black', margin: '5rem'}}>
     <Graph
       graph={{nodes,edges}}
       options={options}
