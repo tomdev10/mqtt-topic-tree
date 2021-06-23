@@ -9,11 +9,14 @@ export default function initializeScene(div) {
   scene.background = new THREE.Color(0xffffff);
 
   const camera = new THREE.PerspectiveCamera(
-    50,
+    70,
     window.innerWidth / window.innerHeight,
     0.1,
     500000
   );
+
+
+
   camera.position.z = 1.5;
   return { scene, renderer, camera };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './data';
+// import data from './data';
 import initializeScene from './initializeScene';
 import ThreeForceGraph from 'three-forcegraph';
 import renderToSprite from './renderToSprite';
@@ -12,12 +12,12 @@ import updateLinkPosition from './updateLinkPosition';
 // stop animation loop after X cycles
 const maxCycles = 100;
 
-export default async function renderMindMap(div) {
+export default async function renderMindMap(div,data) {
   const { scene, renderer, camera } = initializeScene(div, data);
   data.nodes = await Promise.all(
     data.nodes.map((node) =>
-      renderToSprite(<MindMapNode label={node.name} level={node.level} />, {
-        width: 120,
+      renderToSprite(<MindMapNode label={node.displayName} level={node.level} />, {
+        width: 170,
         height: 60
       }).then((sprite) => ({ ...node, sprite }))
     )
@@ -33,7 +33,7 @@ export default async function renderMindMap(div) {
   graph.scale.set(0.005, 0.005, 0.005);
   scene.add(graph);
   camera.lookAt(graph.position);
-
+  camera.zoom =20;
   let counter = 0;
 
   (function animate() {

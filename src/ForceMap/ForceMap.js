@@ -2,13 +2,20 @@ import React, { createRef, useEffect } from 'react';
 import renderMindMap from './renderMindMap';
 
 export default function ForceMap({messages}) {
-  console.log(Object.keys(messages));
   const divRef = createRef();
+  let nodes = [];
+  let links = [];
+  let noOfLevels = [];
 
-
-  function checkIfArrayContainsNode(arr, name, level) {
+  function checkIfArrayContainsNode(arr, id, level) {
     return arr.some(function(arrVal) {
-      return name === arrVal.name && arrVal.level === level;
+      return id === arrVal.id && arrVal.level === level;
+    });
+  }
+
+  function checkIfArrayContainsLink(arr, id, parent) {
+    return arr.some(function(arrVal) {
+      return id === arrVal.target && arrVal.source === parent;
     });
   }
 
@@ -20,27 +27,34 @@ export default function ForceMap({messages}) {
 
   /*eslint-disable*/
   const enrichDataForTree = (messages) => {
-    let tempTree = [];
     Object.keys(messages).map(messageTopic => {
       const arrayOfTopicLevels = messageTopic.split('/');
       arrayOfTopicLevels.map((singleNode, index) => {
+
         const contentToUse = index === arrayOfTopicLevels.length - 1 ? messages[messageTopic]: null;
         const idToUse = index === messageTopic.split('/').length -1 ? messageTopic : generateTopicNameFrom(messageTopic, index);
-        if (!checkIfArrayContainsNode(tempTree,idToUse,index)) {
-          contentToUse ? tempTree.push({id: idToUse , displayName: messageTopic.split('/')[index], level: index +1 , attributes: {payload: contentToUse}}) : tempTree.push({id: idToUse , displayName: messageTopic.split('/')[index], level: index +1})
+        const parentIdToUse = index === 0 ? 'broker' : generateTopicNameFrom(messageTopic, index -1);
+        if (index+1 > noOfLevels) noOfLevels = index+1;
+        if (!checkIfArrayContainsNode(nodes,idToUse,index+1)) {
+          if (contentToUse) {
+            nodes.push({id: idToUse , displayName: messageTopic.split('/')[index], level: index +1 , attributes: {payload: contentToUse}});
+          } else {
+            nodes.push({id: idToUse , displayName: messageTopic.split('/')[index], level: index +1});
+          }
+        }
+        if (!checkIfArrayContainsLink(links,idToUse,parentIdToUse)) {
+          links.push({ source: parentIdToUse, target: idToUse, level: index })
         }
       })
     })
-    tempTree.push({id: 'broker' , displayName: 'broker', level: 0, content: null})
-    return tempTree;
+    nodes.push({id: 'broker' , displayName: 'broker', level: 0, content: null})
   };
 
 
-  const formattedTree = enrichDataForTree(messages);
-  console.log(formattedTree);
-  // const generatedTree = generateTree(tree);
-  // console.log(tree);
-
-  useEffect(() => renderMindMap(divRef.current), [divRef]);
+  enrichDataForTree(messages);
+  console.log(nodes);
+  console.log(links);
+ 
+  useEffect(() => renderMindMap(divRef.current, {nodes, links}, noOfLevels /1000), [divRef]);
   return <div ref={divRef} />;
 }
