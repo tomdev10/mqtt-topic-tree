@@ -90,7 +90,7 @@ const TreeExplorer = ({messages}) => {
       zoom={0.5} 
       initialDepth={1} 
       translate={translation}
-      nodeSize={{x:100,y:100}}
+      nodeSize={{x:300,y:100}}
     />
   </div>;
 }

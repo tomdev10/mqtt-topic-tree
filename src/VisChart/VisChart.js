@@ -37,8 +37,8 @@ export default function VisChart({messages}) {
         if (!checkIfArrayContainsNode(nodes,idToUse,messageTopic.split('/')[index])) {
           if (contentToUse) {
             nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], shape: 'box', mass:3, margin: 10});
-            nodes.push({id: `${idToUse}${contentToUse}` , label: contentToUse, shape: 'text', mass:1});
-            edges.push({ from: idToUse, to: `${idToUse}${contentToUse}`})
+            nodes.push({id: `${idToUse}${contentToUse}` , label: contentToUse, shape: 'text', mass:10, margin: 100});
+            edges.push({ from: idToUse, to: `${idToUse}${contentToUse}`, length: 0.1, smooth: {enabled: false}})
           } else {
             nodes.push({id: idToUse , label: messageTopic.split('/')[index],color: colours[index], mass:3});
           }
