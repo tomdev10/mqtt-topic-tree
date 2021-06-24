@@ -1,10 +1,11 @@
 import React, {useEffect,useState} from 'react';
-import TreeExplorer from './TreeExplorer';
 import { useSubscription } from 'mqtt-react-hooks';
-import JSONTree from 'react-json-tree'
-import NetworkExplorer from './NetworkExplorer';
-import Treemap from './Treemap';
-import VisChart from './VisChart/VisChart';
+import JSONTree from 'react-json-tree';
+
+import NetworkExplorer from './charts/NetworkExplorer/NetworkExplorer';
+import TreeMap from './charts/TreeMap/TreeMap';
+import VisChart from './charts/VisChart/VisChart';
+import TreeExplorer from './charts/TreeExplorer/TreeExplorer';
 
 export default function MessageLog({view, subTopic}) {
   /* Message structure:
@@ -30,7 +31,7 @@ export default function MessageLog({view, subTopic}) {
     <> 
       {view === 'tree' && <TreeExplorer messages={messagesObj} />}
       {view === 'network' && <NetworkExplorer messages={messagesObj} />}
-      {view === 'map' && <Treemap messages={messagesObj} />}
+      {view === 'map' && <TreeMap messages={messagesObj} />}
       {view === 'vis' && <VisChart messages={messagesObj} />}
       <hr />
       {messages.length > 0 && <JSONTree data={messages} />}
