@@ -43,6 +43,10 @@ function App() {
     window.scrollTo(0, 500)
     setView(view === 'vis' ? null : 'vis')
   };
+  const handleToggleRadial = () => {
+    window.scrollTo(0, 500)
+    setView(view === 'radial' ? null : 'radial')
+  };
 
   return (
     <div className="App">
@@ -54,6 +58,7 @@ function App() {
           handleToggleNetwork={handleToggleNetwork} 
           handleToggleMap={handleToggleMap}
           handleToggleVis={handleToggleVis}
+          handleToggleRadial={handleToggleRadial}
           brokerToUse={brokerUrl}
           topic={subTopic || '#'}
           clientId={clientId}

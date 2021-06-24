@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMqttState } from 'mqtt-react-hooks';
 
-const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,handleToggleMap,handleToggleForce,handleToggleVis, brokerToUse, topic, clientId, username, password}) => {
+const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,handleToggleMap,handleToggleRadial,handleToggleVis, brokerToUse, topic, clientId, username, password}) => {
 
   /*
   * Status list
@@ -76,10 +76,15 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
           </div>
         }
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
-          <button class="m-2 px-4 py-1 text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" onClick={handleToggleVis}>Toggle Freeform Tree</button>
-            <span className="italic">Best for development and fun!</span>
+          <button class="m-2 px-4 py-1 text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" onClick={handleToggleRadial}>Toggle Structured Tree</button>
+            <span className="italic">Best for development</span>
           </div>
           }
+        {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+          <button class="m-2 px-4 py-1 text-sm text-indigo-600 font-semibold rounded-full border border-indigo-200 hover:text-white hover:bg-indigo-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" onClick={handleToggleVis}>Toggle Freeform Tree</button>
+            <span className="italic">Best for fun!</span>
+          </div>
+        }
       </div>
     </div>
 

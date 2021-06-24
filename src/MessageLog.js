@@ -5,6 +5,7 @@ import JSONTree from 'react-json-tree';
 import NetworkExplorer from './charts/NetworkExplorer/NetworkExplorer';
 import TreeMap from './charts/TreeMap/TreeMap';
 import VisChart from './charts/VisChart/VisChart';
+import RadialTree from './charts/RadialTree/RadialTree';
 import TreeExplorer from './charts/TreeExplorer/TreeExplorer';
 
 export default function MessageLog({view, subTopic}) {
@@ -33,6 +34,7 @@ export default function MessageLog({view, subTopic}) {
       {view === 'network' && <NetworkExplorer messages={messagesObj} />}
       {view === 'map' && <TreeMap messages={messagesObj} />}
       {view === 'vis' && <VisChart messages={messagesObj} />}
+      {view === 'radial' && <RadialTree messages={messagesObj} />}
       <hr />
       {messages.length > 0 && <JSONTree data={messages} />}
     </>
