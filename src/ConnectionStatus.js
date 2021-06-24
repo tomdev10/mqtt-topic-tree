@@ -58,12 +58,28 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         {connectionStatus !== "Connected" && <button type="submit" class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Connect</button>}
         {connectionStatus === "Connected" && <button class="px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={handleReset}>Reset</button>}
       </form>
-      <div className="flex items-center justify-center flex-col max-w-lg flex-grow">
+      <div className="flex items-start justify-center flex-col max-w-xl flex-grow mx-10">
         {connectionStatus && <h4 class="text-lg font-medium text-black">{`Status: ${connectionStatus}`}</h4>}
-        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>}
-        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-200 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2" onClick={handleToggleNetwork}>Toggle Network</button>}
-        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>}
-        {connectionStatus === "Connected" && <button class="my-2 px-4 py-1 text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" onClick={handleToggleVis}>Toggle Vis</button>}
+        {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+            <button class="m-2 px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>
+            <span className="italic">Best for exploration and development</span>
+          </div>
+        }
+        {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+            <button class="m-2 px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-200 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2" onClick={handleToggleNetwork}>Toggle Network</button>
+            <span className="italic">Best for visualisation and extraction</span>
+          </div>
+        }
+        {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+            <button class="m-2 px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>
+            <span className="italic">Best for understanding out the data</span>
+          </div>
+        }
+        {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+          <button class="m-2 px-4 py-1 text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" onClick={handleToggleVis}>Toggle Vis</button>
+            <span className="italic">Best for development and fun!</span>
+          </div>
+          }
       </div>
     </div>
 
