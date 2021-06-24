@@ -7,7 +7,11 @@ export default function RadialTree({messages}){
         // hierarchical: true,
       },
       edges: {
-        color: "#000000"
+        color: "#000000",
+        smooth: {
+          roundness: 0.25,
+          type: 'curvedCCW'
+        }
       },
       nodes: {
         color: "#6233FF"
@@ -56,7 +60,7 @@ export default function RadialTree({messages}){
               if (contentToUse) {
                 nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], shape: 'box', mass:3, margin: 10});
                 nodes.push({id: `${idToUse}${contentToUse}` , label: contentToUse, shape: 'text', mass:10, margin: 100});
-                edges.push({ from: idToUse, to: `${idToUse}${contentToUse}`, length: 0.1, smooth: {enabled: false}})
+                edges.push({ from: idToUse, to: `${idToUse}${contentToUse}`, length: 0.001, smooth: {enabled: false}})
               } else {
                 nodes.push({id: idToUse , label: messageTopic.split('/')[index],color: colours[index], mass:3});
               }

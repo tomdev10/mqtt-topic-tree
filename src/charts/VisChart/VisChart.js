@@ -62,8 +62,8 @@ export default function VisChart({messages}) {
     edges: {
       color: "#000000",
       smooth: {
-        roundness: 0.25,
-        type: 'curvedCW'
+        roundness: 0.5,
+        type: 'curvedCCW'
       }
     },
     height: "780px"
