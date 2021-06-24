@@ -39,8 +39,10 @@ function App() {
   const handleToggleTree = () => setView(view === 'tree' ? null : 'tree');
   const handleToggleNetwork = () => setView(view === 'network' ? null : 'network');
   const handleToggleMap = () => setView(view === 'map' ? null : 'map');
-  const handleToggleForce = () => setView(view === 'force' ? null : 'force');
-  const handleToggleVis = () => setView(view === 'vis' ? null : 'vis');
+  const handleToggleVis = () => {
+    window.scrollTo(0, 500)
+    setView(view === 'vis' ? null : 'vis')
+  };
 
   return (
     <div className="App">
@@ -51,7 +53,6 @@ function App() {
           handleToggleTree={handleToggleTree} 
           handleToggleNetwork={handleToggleNetwork} 
           handleToggleMap={handleToggleMap}
-          handleToggleForce={handleToggleForce}
           handleToggleVis={handleToggleVis}
           brokerToUse={brokerUrl}
           topic={subTopic || '#'}

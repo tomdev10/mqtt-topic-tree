@@ -82,7 +82,6 @@ const buildTree = (messages) => {
 
 const TreeExplorer = ({messages}) => {
    const dataForTree = buildTree(messages);
-   console.log('map: ', dataForTree);
   return <div style={{height: 600, border: '5px solid black', margin: '5rem'}}>
       <ResponsiveTreeMap
         data={dataForTree}

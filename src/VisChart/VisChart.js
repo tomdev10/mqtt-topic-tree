@@ -36,7 +36,7 @@ export default function VisChart({messages}) {
         const parentIdToUse = index === 0 ? 'broker' : generateTopicNameFrom(messageTopic, index -1);
         if (!checkIfArrayContainsNode(nodes,idToUse,messageTopic.split('/')[index])) {
           if (contentToUse) {
-            nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], title: contentToUse, shape: 'text', mass:3, margin: 10});
+            nodes.push({id: idToUse , label: messageTopic.split('/')[index] , color: colours[index], title: contentToUse, shape: 'box', mass:3, margin: 10});
           } else {
             nodes.push({id: idToUse , label: messageTopic.split('/')[index],color: colours[index], mass:3});
           }
@@ -58,16 +58,20 @@ export default function VisChart({messages}) {
       hierarchical: false
     },
     edges: {
-      color: "#000000"
+      color: "#000000",
+      smooth: {
+        roundness: 0.25,
+        type: 'curvedCW'
+      }
     },
-    height: "500px"
+    height: "780px"
   };
 
   const events = {
-    select: function(event) {
-      var { nodes } = event;
-      if (nodes) alert(`Selected: ${nodes}`)
-    }
+    // select: function(event) {
+    //   var { nodes } = event;
+    //   if (nodes) alert(`Selected: ${nodes}`)
+    // }
   };
 
   return <div style={{height: 800, border: '5px solid black', margin: '5rem'}}>
