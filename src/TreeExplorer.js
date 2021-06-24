@@ -84,7 +84,7 @@ const buildTree = (messages) => {
 const TreeExplorer = ({messages}) => {
   const dataForTree = buildTree(messages);
   const translation = {x: 300, y: 300};
-  return <div style={{height: 600, border: '5px solid black', margin: '5rem'}}>
+  return <div className="m-2 md:m-20" style={{height:600, border: '5px solid black'}}>
     <Tree 
       data={dataForTree} 
       zoom={0.5} 

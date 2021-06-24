@@ -76,7 +76,7 @@ export default function VisChart({messages}) {
     // }
   };
 
-  return <div style={{height: 800, border: '5px solid black', margin: '5rem'}}>
+  return <div className="m-2 md:m-20"  style={{height: 800, border: '5px solid black'}}>
     <Graph
       graph={{nodes,edges}}
       options={options}

@@ -58,7 +58,7 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         {connectionStatus !== "Connected" && <button type="submit" class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Connect</button>}
         {connectionStatus === "Connected" && <button class="px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={handleReset}>Reset</button>}
       </form>
-      <div className="flex items-start justify-center flex-col max-w-xl flex-grow mx-10">
+      <div className="flex items-start justify-center flex-col flex-grow mx-0 my-6 md:mx-10 md:my-0 md:max-w-2xl">
         {connectionStatus && <h4 class="text-lg font-medium text-black">{`Status: ${connectionStatus}`}</h4>}
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
             <button class="m-2 px-4 py-1 text-sm text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" onClick={handleToggleTree}>Toggle Tree</button>
@@ -67,12 +67,12 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         }
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
             <button class="m-2 px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-200 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2" onClick={handleToggleNetwork}>Toggle Network</button>
-            <span className="italic">Best for visualisation and extraction</span>
+            <span className="italic">Best for visualisation and extraction (not good on mobile!)</span>
           </div>
         }
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
             <button class="m-2 px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>
-            <span className="italic">Best for understanding out the data</span>
+            <span className="italic">Best for understanding out the data (not good on mobile!)</span>
           </div>
         }
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">

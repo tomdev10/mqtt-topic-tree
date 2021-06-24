@@ -17,8 +17,10 @@ const Instructions = () => {
               <li>3) Toggle your chosen view on, and explore!</li>
           </ol>
           <div className="text-xs py-2 mb-6 italic">(The message log is avaliable at the bottom to aid debugging!)</div>
-          <a class="m-2 px-4 py-1 text-sm text-black-600 font-semibold rounded-full border border-black-200 hover:text-white hover:bg-black hover:border-transparent focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-offset-2" href="https://github.com/tomdev10/mqtt-topic-tree" target="_blank" rel="noreferrer">View Source Code 💻</a>
-          <a class="m-2 px-4 py-1 text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" href="https://buymeacoffee.com/tomdev10" target="_blank" rel="noreferrer">Buy me a beer 🍻</a>
+          <div className="flex flex-col md:flex-row max-w-s">
+            <a class="m-2 px-4 py-1 text-center text-sm text-black-600 font-semibold rounded-full border border-black-200 hover:text-white hover:bg-black hover:border-transparent focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-offset-2" href="https://github.com/tomdev10/mqtt-topic-tree" target="_blank" rel="noreferrer">View Source Code 💻</a>
+            <a class="m-2 px-4 py-1 text-center text-sm text-yellow-600 font-semibold rounded-full border border-yellow-200 hover:text-white hover:bg-yellow-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2" href="https://buymeacoffee.com/tomdev10" target="_blank" rel="noreferrer">Buy me a beer 🍻</a>
+          </div>   
       </div>
       <div>
         <Logo width={200} height={200} className="p-6" />
