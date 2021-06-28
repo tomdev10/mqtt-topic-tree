@@ -36,8 +36,14 @@ function App() {
     if (password) document.getElementById('password').value = password;
   },[brokerUrl, clientId, password, subTopic, username]);
 
+ 
+
+  const handleToggleNetwork = () => { 
+      setView(view === 'network' ? null : 'network')
+  };
+
   const handleToggleTree = () => setView(view === 'tree' ? null : 'tree');
-  const handleToggleNetwork = () => setView(view === 'network' ? null : 'network');
+ 
   const handleToggleMap = () => setView(view === 'map' ? null : 'map');
   const handleToggleVis = () => {
     window.scrollTo(0, 500)
