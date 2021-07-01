@@ -6,8 +6,11 @@ import ConnectorWrapper from './ConnectorWrapper';
 import Instructions from './Instructions';
 import MessageLog from './MessageLog';
 
+
+const getBrokerUrlFromParams = () => window.location.search.includes('usingProxy=true') ? 'wss://localhost:8888' : null;
+
 function App() {
-  const [brokerUrl, setBrokerUrl] = useState();
+  const [brokerUrl, setBrokerUrl] = useState(()=>getBrokerUrlFromParams());
   const [subTopic, setSubTopic] = useState();
   const [clientId, setClientId] = useState();
   const [username, setUsername] = useState();
@@ -36,8 +39,6 @@ function App() {
     if (password) document.getElementById('password').value = password;
   },[brokerUrl, clientId, password, subTopic, username]);
 
- 
-
   const handleToggleNetwork = () => { 
       setView(view === 'network' ? null : 'network')
   };
@@ -45,10 +46,12 @@ function App() {
   const handleToggleTree = () => setView(view === 'tree' ? null : 'tree');
  
   const handleToggleMap = () => setView(view === 'map' ? null : 'map');
+
   const handleToggleVis = () => {
     window.scrollTo(0, 500)
     setView(view === 'vis' ? null : 'vis')
   };
+
   const handleToggleRadial = () => {
     window.scrollTo(0, 500)
     setView(view === 'radial' ? null : 'radial')

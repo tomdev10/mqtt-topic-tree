@@ -16,7 +16,7 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
 
   const handleReset = () => window.location.reload();
   return (
-    <div className="p-6 m-6 bg-white rounded-xl shadow-md flex items-center space-x-4 flex-wrap">
+    <div className="p-6 m-2 bg-white rounded-xl shadow-md flex items-center space-x-4 flex-wrap">
       <form onSubmit={onBrokerChange} style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
         <h3 className="text-lg font-medium text-black">Broker Details</h3>
         <div className="my-4">
