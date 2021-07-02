@@ -70,7 +70,7 @@ export default function VisChart({messages}) {
     },
     interaction: {
       multiselect: true,
-      dragView: zoom && zoom < 0.1 ? false : true,
+      dragNodes: zoom && zoom > 0.4 ? false : true,
     },
     height: "780px"
   };

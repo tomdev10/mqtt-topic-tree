@@ -24,7 +24,7 @@ export default function RadialTree({messages}){
         },
         interaction: {
           multiselect: true,
-          dragView: zoom && zoom < 0.1 ? false : true
+          dragNodes: zoom && zoom > 0.4 ? false : true,
         }
       };
 
