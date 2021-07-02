@@ -14,6 +14,7 @@ const TreeMap = React.lazy(() => import('./charts/TreeMap/TreeMap'));
 const VisChart = React.lazy(() => import('./charts/VisChart/VisChart'));
 const RadialTree = React.lazy(() => import('./charts/RadialTree/RadialTree'));
 const TreeExplorer = React.lazy(() => import('./charts/TreeExplorer/TreeExplorer'));
+const Sunburst = React.lazy(() => import('./charts/Sunburst/Sunburst'));
 
 export default function MessageLog({view, subTopic}) {
   /* Message structure:
@@ -36,6 +37,7 @@ export default function MessageLog({view, subTopic}) {
     }
   },[messages, setMessagesObj]);
 
+  console.log(view)
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       {view === 'tree' && <TreeExplorer messages={messagesObj} />}
@@ -43,6 +45,7 @@ export default function MessageLog({view, subTopic}) {
       {view === 'map' && <TreeMap messages={messagesObj} />}
       {view === 'vis' && <VisChart messages={messagesObj} />}
       {view === 'radial' && <RadialTree messages={messagesObj} />}
+      {view === 'sun' && <Sunburst messages={messagesObj} />}
       <hr />
       {messages.length > 0 && <JSONTree data={messages} />}
     </React.Suspense>

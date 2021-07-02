@@ -31,7 +31,6 @@ export default function RadialTree({messages}){
 
       const events = {
         zoom: debounce(function(event) {
-          console.log('called')
           const newScale = event.scale
           setZoom(newScale)
         },500)

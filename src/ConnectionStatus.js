@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMqttState } from 'mqtt-react-hooks';
 
-const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,handleToggleMap,handleToggleRadial,handleToggleVis, brokerToUse, topic, clientId, username, password}) => {
+const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,handleToggleMap,handleToggleRadial,handleToggleVis, handleToggleSun,brokerToUse, topic, clientId, username, password}) => {
 
   /*
   * Status list
@@ -73,6 +73,11 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
             <button class="m-2 px-4 py-1 text-sm text-blue-600 font-semibold rounded-full border border-blue-200 hover:text-white hover:bg-blue-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2" onClick={handleToggleMap}>Toggle Map</button>
             <span className="italic">Best for understanding out the data (not good on mobile!)</span>
+          </div>
+        }
+         {connectionStatus === "Connected" && <div className="flex justify-between items-center">
+          <button class="m-2 px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" onClick={handleToggleSun}>Toggle Sunburst</button>
+            <span className="italic">Best for data on desktop</span>
           </div>
         }
         {connectionStatus === "Connected" && <div className="flex justify-between items-center">

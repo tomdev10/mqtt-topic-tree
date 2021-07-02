@@ -47,6 +47,8 @@ function App() {
  
   const handleToggleMap = () => setView(view === 'map' ? null : 'map');
 
+  const handleToggleSun = () => setView(view === 'sun' ? null : 'sun');
+
   const handleToggleVis = () => {
     window.scrollTo(0, 500)
     setView(view === 'vis' ? null : 'vis')
@@ -68,6 +70,7 @@ function App() {
           handleToggleMap={handleToggleMap}
           handleToggleVis={handleToggleVis}
           handleToggleRadial={handleToggleRadial}
+          handleToggleSun={handleToggleSun}
           brokerToUse={brokerUrl}
           topic={subTopic || '#'}
           clientId={clientId}
