@@ -1,7 +1,9 @@
 import React from 'react';
 import Graph from "react-graph-vis";
+import { debounce } from "lodash";
 
 export default function VisChart({messages}) {
+  const [zoom, setZoom] = React.useState();
   let nodes = [];
   let edges = []
 
@@ -54,10 +56,10 @@ export default function VisChart({messages}) {
 
   enrichDataForTree(messages);
 
-
   const options = {
     layout: {
-      hierarchical: false
+      hierarchical: false,
+      improvedLayout: false
     },
     edges: {
       color: "#000000",
@@ -66,14 +68,20 @@ export default function VisChart({messages}) {
         type: 'curvedCCW'
       }
     },
+    interaction: {
+      multiselect: true,
+      dragView: zoom && zoom < 0.1 ? false : true,
+    },
     height: "780px"
   };
 
+
   const events = {
-    // select: function(event) {
-    //   var { nodes } = event;
-    //   if (nodes) alert(`Selected: ${nodes}`)
-    // }
+    zoom: debounce(function(event) {
+      console.log('called')
+      const newScale = event.scale
+      setZoom(newScale)
+    },500)
   };
 
   return <div className="m-2 md:m-20"  style={{height: 800, border: '5px solid black'}}>

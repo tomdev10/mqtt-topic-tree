@@ -1,28 +1,41 @@
 import React from "react";
 import Graph from "react-graph-vis";
+import { debounce } from "lodash";
 
 export default function RadialTree({messages}){
       const canvasWrapperRef = React.createRef();
-      const options ={  layout: {
+      const [zoom, setZoom] = React.useState();
+      const options ={  
+        layout: {
         // hierarchical: true,
-      },
-      edges: {
-        color: "#000000",
-        smooth: {
-          roundness: 0.25,
-          type: 'curvedCCW'
+        },
+        edges: {
+          color: "#000000",
+          smooth: {
+            roundness: 0.25,
+            type: 'curvedCCW'
+          }
+        },
+        nodes: {
+          color: "#6233FF"
+        },
+        physics: {
+          enabled: true
+        },
+        interaction: {
+          multiselect: true,
+          dragView: zoom && zoom < 0.1 ? false : true
         }
-      },
-      nodes: {
-        color: "#6233FF"
-      },
-      physics: {
-        enabled: true
-      },
-      interaction: {
-        multiselect: true,
-        dragView: true
-      }};
+      };
+
+
+      const events = {
+        zoom: debounce(function(event) {
+          console.log('called')
+          const newScale = event.scale
+          setZoom(newScale)
+        },500)
+      };
 
       let nodes = [];
       let edges = []
@@ -83,6 +96,7 @@ export default function RadialTree({messages}){
           ref={canvasWrapperRef}
           graph={{nodes,edges}}
           options={options}
+          events={events}
         />
       </div>
     );
