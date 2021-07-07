@@ -37,7 +37,6 @@ export default function MessageLog({view, subTopic}) {
     }
   },[messages, setMessagesObj]);
 
-  console.log(view)
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       {view === 'tree' && <TreeExplorer messages={messagesObj} />}
