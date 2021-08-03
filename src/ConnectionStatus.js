@@ -21,37 +21,37 @@ const ConnectorWrapper = ({onBrokerChange,handleToggleTree,handleToggleNetwork,h
         <h2 className="text-lg font-medium text-black">Broker Details</h2>
         <div className="my-4">
           <label className="flex items-center w-full justify-between flex-wrap font-bold">
-            Broker URL:
+            Broker URL <span className="italic text-xs font-normal">(e.g. wss://mqttws.mas400.com)</span>:
             {connectionStatus !== "Connected" ? 
-              <input id="brokerUrl" className="px-4 py-1 mx-4 text-sm text-purple-800 rounded-full border border-purple-400 "/> 
+              <input id="brokerUrl" className="px-4 py-1 mx-4 text-lg text-purple-800 rounded-full border border-purple-400 "/> 
               : <span className="mx-2 font-normal">{brokerToUse}</span>
             }
           </label>
           <label className="flex items-center justify-between w-full flex-wrap font-bold">
             Topic (will default to all):
             {connectionStatus !== "Connected" ? 
-              <input id="topicToSubTo" className="px-4 mx-4 my-2 py-1 text-sm text-purple-800 rounded-full border border-purple-400 "/> 
+              <input id="topicToSubTo" className="px-4 mx-4 my-2 py-1 text-lg text-purple-800 rounded-full border border-purple-400 "/> 
               : <span className="mx-2 font-normal">{topic}</span>
             }
           </label>
           <label className="flex items-center w-full justify-between flex-wrap font-bold">
            Client Id (will default to random):
            {connectionStatus !== "Connected" ?  
-           <input id="clientId" className="px-4 py-1 mx-4 text-sm text-purple-800 rounded-full border border-purple-400 "/> 
+           <input id="clientId" className="px-4 py-1 mx-4 text-lg text-purple-800 rounded-full border border-purple-400 "/> 
             : <span className="mx-2 font-normal">{clientId}</span>
            }
           </label>
           <label className="flex items-center justify-between w-full flex-wrap font-bold">
             Username  (will default to unauth):
             {connectionStatus !== "Connected" ? 
-              <input id="username" className="px-4 mx-4 my-2 py-1 text-sm text-purple-800 rounded-full border border-purple-400 "/> 
+              <input id="username" className="px-4 mx-4 my-2 py-1 text-lg text-purple-800 rounded-full border border-purple-400 "/> 
               : <span className="mx-2 font-normal">{username}</span>
             }
           </label>
           <label className="flex items-center w-full justify-between flex-wrap font-bold">
             Password (will default to unauth):
             {connectionStatus !== "Connected" ? 
-              <input id="password" className="px-4 py-1 mx-4 text-sm text-purple-800 rounded-full border border-purple-400 "/>
+              <input id="password" className="px-4 py-1 mx-4 text-lg text-purple-800 rounded-full border border-purple-400 "/>
               : <span className="mx-2 font-normal">{password}</span>}
           </label>
         </div>
