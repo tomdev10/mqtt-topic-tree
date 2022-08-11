@@ -1,7 +1,6 @@
-import React from 'react';
-import './index.css';
-import App from './App';
-
+import React from "react";
+import "./index.css";
+import App from "./App";
 
 import { hydrate, render } from "react-dom";
 
@@ -11,5 +10,3 @@ if (rootElement.hasChildNodes()) {
 } else {
   render(<App />, rootElement);
 }
-
-
