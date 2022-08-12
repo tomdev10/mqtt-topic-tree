@@ -66,8 +66,7 @@ function App() {
   return (
     <div className="App">
       <ConnectorWrapper brokerUrlToUse={brokerUrl} 
-          topic={subTopic || "#"}
-          clientId={clientId ? (clientId !== "" || randomId) : randomId}
+          clientId={clientId ? (clientId !== "" ? clientId : randomId) : randomId}
           username={username}
           password={password}>
         <Instructions />
@@ -80,12 +79,12 @@ function App() {
           handleToggleRadial={handleToggleRadial}
           handleToggleSun={handleToggleSun}
           brokerToUse={brokerUrl}
-          topic={subTopic || "#"}
-          clientId={clientId ? (clientId !== "" || randomId) : randomId}
+          topic={subTopic ? (subTopic !== "" ? subTopic : '#') : '#'}
+          clientId={clientId ? (clientId !== "" ? clientId : randomId) : randomId}
           username={username}
           password={password}
         />
-        <MessageLog view={view} subTopic={subTopic} />
+        <MessageLog view={view} subTopic={subTopic ? (subTopic !== "" ? subTopic : '#') : '#'} />
       </ConnectorWrapper>
     </div>
   );

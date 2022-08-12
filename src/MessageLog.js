@@ -27,7 +27,7 @@ export default function MessageLog({ view, subTopic }) {
 
   console.log('subtopic: ', subTopic);
   
-  const { message } = useSubscription(subTopic || "#");
+  const { message } = useSubscription([String(subTopic) || "#"]);
   const [messages, setMessages] = useState([]);
   const [messagesObj, setMessagesObj] = useState([]);
 
